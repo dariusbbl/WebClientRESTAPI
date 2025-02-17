@@ -1,6 +1,8 @@
 Pentru realizarea proiectului, am plecat de la implementari de start ale laboratoarelor si de parsarea JSON. 
+
 Implementarea propriu-zisa este facuta in fisierul client.c :
 Parsarea si folosirea datelor JSON sunt efectuate folosind biblioteca 'parson', pentru o mai facila creare, serializare si deserializare a obiectelor. Pentru crearea si initializarea acestora am folosit 'json_value_init_object', pentru adaugarea datelor 'json_object_set..' pentru text si numere, am transformat obiectele JSON in string folosinf 'json_serialize_to_string_pretty' pentru a-l trimite ulterior catre server, am extras datele in obiectele JSON create prin 'json_parse_string' si am eliberat reursele dupa procesarea datelor cu 'json_value_free'.
+
 Proiectul reprezinta o interfata de gestionare a utilizatorilor si cartilor prin serviciul web de la adresa "34.246.184.49", avand portul "8080", unde utilizatorii pot efectua diverse comenzi:
     -> register: este mai intai solicitat utilizatorului sa isi creeze un username si o parola ce sunt date de la tastatura folosind 'fgets', ce ulterior sunt verificate daca acestea contin spatii (lucru interzis in cerinta temei; contul va fi inregistrat doar in cazul in care aceasta cerinta este respectata, altfel se afiseaza mesaj de eroare si se reia procesul). Ulterior, se creeaza obiectele JSON , iar prin functia definita in "requests.c", 'compute_post_request', construiesc cererea catre server pe care o trimit prin 'send_to_server'. Urmeaza pocesarea raspunsului primit de la server ('recieve_from_server') ce verifica daca exista mesaje de eroare si se afiseaza rezultatul.
 
