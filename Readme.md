@@ -1,4 +1,4 @@
-Pentru realizarea temei, m-am folosit de fisierele laboratului 9 ce erau deja implementate (mare parte din ele, restul au fost rezolvate la laborator) si parsarea JSON din link-urile temei. 
+Pentru realizarea proiectului, am plecat de la implementari de start ale laboratoarelor si de parsarea JSON. 
 Implementarea propriu-zisa este facuta in fisierul client.c :
 Parsarea si folosirea datelor JSON sunt efectuate folosind biblioteca 'parson', pentru o mai facila creare, serializare si deserializare a obiectelor. Pentru crearea si initializarea acestora am folosit 'json_value_init_object', pentru adaugarea datelor 'json_object_set..' pentru text si numere, am transformat obiectele JSON in string folosinf 'json_serialize_to_string_pretty' pentru a-l trimite ulterior catre server, am extras datele in obiectele JSON create prin 'json_parse_string' si am eliberat reursele dupa procesarea datelor cu 'json_value_free'.
 Tema reprezinta o interfata de gestionare a utilizatorilor si cartilor prin serviciul web de la adresa "34.246.184.49", avand portul "8080", unde utilizatorii pot efectua diverse comenzi:
